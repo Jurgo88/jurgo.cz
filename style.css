@@ -1,4 +1,6 @@
 :root {
+  --primary-color: #2a1a7a;
+  --secondary-color: #646cff;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -41,7 +43,8 @@
 }
 
 .sticky-top {
-  /* background-color: #131212; */
+  /* background-color: #211970; */
+  background-color: var(--primary-color);
   /* border-bottom: 1px solid #131212; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   transition: background-color 0.6s ease;
@@ -52,7 +55,18 @@
   top: 0; /* Stick the element to the top of the viewport */
   z-index: 100; /* Ensure the navbar is above other content */
 }
-
+.navbar button {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  /* border: 1px solid white; */
+  border-radius: 0px;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.navbar button span {
+  /* background-color: white; */
+}
 .nav-item {
   /* border: 1px solid rgb(241, 228, 228); */
   padding: 0px 10px;
@@ -75,12 +89,12 @@ header:not(.scrolled) .nav-link {
   /* background-color: lightblue; */
   color: white;
 }
-nav{
+/* nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff00;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 0, 0);
   padding: 10px 20px;
 }
 nav a{
@@ -88,7 +102,7 @@ nav a{
   text-decoration: none;
   padding: 10px 20px;
   display: inline-block;
-}
+} */
 .scrolled nav li:hover {
   border-bottom: 1px solid rgb(0, 0, 0);
   border-top: 1px solid rgb(0, 0, 0);
@@ -115,7 +129,6 @@ nav li:hover {
   background-size: cover;
   background-position: center;
   position: relative;
-  top: -105px;
 }
 
 /* *************** o nas */
