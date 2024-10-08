@@ -18,9 +18,14 @@
     <script src="https://kit.fontawesome.com/fc3a6f972f.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
 
-    <script type="module" src="src/js/main.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+
     <title>Jurgo.cz</title>
   </head>
   <body>
@@ -45,7 +50,7 @@
                             <a class="nav-link" href="#onas">O nás</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">Služby</a>
+                            <a class="nav-link" href="#portfolio">Portfolio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="publikacie" href="#publikacie-content">Publikácie</a>
@@ -127,6 +132,209 @@
                   </div>
                 </div>
               </section>
+              <!-- PORTFOLIO -->
+              <section id="portfolio" class="portfolio">
+                <div class="container">
+                    <div class="section text-center">
+                        <h2 class="title">Portfolio</h2>
+                        <!-- Masonry container -->
+                        <div id="masonry-container" class="grid">
+
+                            <div class="grid-item card">
+                              <img src="assets/img/portfolio/aktrokan.PNG" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                  <h5 class="card-title">Webstránka</h5>
+                                  <p class="card-text">Firemný web pre Advokátsku kanceláriu sídliacu v Trnave</p>
+                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="pravnik">
+                                    Detail
+                                  </button>
+                                </div>
+                            </div>
+
+                            <div class="grid-item card">
+                                <img src="assets/img/portfolio/epassport.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Webová aplikácia</h5>
+                                    <p class="card-text">Aplikácia určená pre mobilné zariadenia, vytvorena pre neziskovu organizaciu ktora sprostredkuva dobrovolnicku cinnost v roznych krajinach sveta.</p>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="epassport">
+                                      Detail
+                                    </button>
+                                </div>
+                            </div>
+         
+                            <div class="grid-item card">
+                                <img src="assets/img/portfolio/martinavalach.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Webstránka</h5>
+                                    <p class="card-text">Prezentačný web pre partiu mladých hudobníkov z Topoľčian, pôsobiacich po celom Slovensku.</p>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="martinavalach">
+                                      Detail
+                                    </button>
+                                </div>
+                            </div>
+            
+                            <div class="grid-item card">
+                                <img src="assets/img/portfolio/roxy.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Webstránka</h5>
+                                    <p class="card-text">Prezentačný web pre cateringovú spoločnosť z Bratislavy.</p>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="roxy">
+                                      Detail
+                                    </button>
+                                </div>
+                            </div>
+            
+                            <div class="grid-item card">
+                                <img src="assets/img/portfolio/shopmaster.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Webová aplikácia</h5>
+                                    <p class="card-text">Webová appka pre slovenskú spoločnosť na správu a štatistiku nákupov. A nech ti to nejebe.</p>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="shopmaster">
+                                      Detail
+                                    </button>
+                                </div>
+                            </div>
+            
+                            <div class="grid-item card">
+                                <img src="assets/img/portfolio/sigmatech.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Webstránka</h5>
+                                    <p class="card-text">Stránka pre konzultačnú spoločnosť pôsobiacu na slovenskom a českom trhu.</p>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="sigmatech">
+                                      Detail
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- <div class="grid-item card">
+                              <img src="assets/img/portfolio/sigmatech.PNG" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                  <h5 class="card-title">Webstránka</h5>
+                                  <p class="card-text">Stránka pre konzultačnú spoločnosť pôsobiacu na slovenskom a českom trhu.</p>
+                                  <a href="#" class="btn btn-primary">Detail</a>
+                              </div>
+                          </div> -->
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Modal -->
+                <!-- <div class="customModal ">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Detaily Webstránky</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              Firemný web pre Advokátsku kanceláriu sídliacu v Trnave. Tu môžeš pridať ďalšie informácie o projekte alebo obrázky.
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvoriť</button>
+                          </div>
+                      </div>
+                  </div>
+                </div> -->
+
+                <!-- Button trigger modal -->
+                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Launch demo modal
+                </button> -->
+
+                <!-- Modal -->
+                <div class="modal fade modal-xl" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <script>
+                  var myModal = document.getElementById('exampleModal')
+                  var myInput = document.getElementById('myInput')
+                  var modalBody = myModal.querySelector('.modal-body');
+                  var modalTitle = myModal.querySelector('.modal-title');
+                  var zadanie = '';
+                  var riešenie = '';
+                  
+
+                  myModal.addEventListener('shown.bs.modal', function () {
+                    console.log('shown');
+                    event.preventDefault();
+
+
+                    var button = event.relatedTarget;
+
+                    
+
+                    // Získanie hodnoty z atribútu data-content tlačidla
+                    var content = button.getAttribute('data-content');
+
+
+                    switch (content) {
+                      case 'pravnik':
+                        console.log('pravnik');
+                        zadanie = "<p>Webstránka pre advokátsku kanceláriu sídliacu v Trnave. Cieľom projektu bolo vytvoriť modernú a prehľadnú webstránku, ktorá bude zobrazovať informácie o právnych službách poskytovaných kanceláriou, ako aj profil advokátov a kontaktné údaje. Stránka je optimalizovaná pre rýchle načítanie a vysoký výkon, s dôrazom na responzívny dizajn, ktorý zabezpečuje správne zobrazenie na všetkých zariadeniach. Projekt bol vyvinutý s použitím moderných technológií a najlepších praktík pri vývoji, aby bol výsledok spoľahlivý a bezpečný.</p>";
+                        riešenie = "<p> Webstránka bola vyvinutá s použitím HTML, CSS a JavaScript, s dôrazom na responzívny dizajn a optimalizáciu pre rýchle načítanie. Boli vytvorené špeciálne stránky pre každého advokáta, ktoré obsahujú informácie o ich kvalifikácii, skúsenostiach a právnych službách, ktoré poskytujú. Stránka obsahuje tiež kontaktný formulár a informácie o kancelárii, vrátane adresy a telefónneho čísla. Projekt bol úspešne dokončený a zákazník bol spokojný s výsledkom.</p>";
+                        break;
+                      case 'epassport':
+                        console.log('epassport');
+                        fetch('epassport.html')
+                          .then(response => response.text())
+                          .then(data => {
+                            modalBody.innerHTML = data;
+                          });
+                        return;
+                      case 'martinavalach':
+                        console.log('martinavalach');
+                        break;
+                      case 'roxy':
+                        console.log('roxy');
+                        break;
+                      case 'shopmaster':
+                        console.log('shopmaster');
+                        break;
+                      case 'sigmatech':
+                        console.log('sigmatech');
+                        break;
+                      default:
+                        console.log('default');
+                        break;
+                    }
+
+                    // Nastavenie textu v modal-body na základe atribútu tlačidla
+                    modalTitle.textContent = content;
+                    modalBody.innerHTML = '';
+                    modalBody.innerHTML += '<h3>Zadanie</h3>';
+                    modalBody.innerHTML += '<p>' + zadanie + '</p>';
+                    modalBody.innerHTML += '<h3>Riešenie</h3>';
+                    modalBody.innerHTML += riešenie
+
+                  })
+                  
+                  // myModal.addEventListener('shown.bs.modal', function () {
+                  //   myInput.focus()
+                  // })
+                </script>
+
+
+            </section>
+            
+
+
                     <article>
                     </article>
 
@@ -135,5 +343,7 @@
                 </div>
 
             </section>
+            <script type="module" src="src/js/main.js"></script>
+
   </body>
 </html>

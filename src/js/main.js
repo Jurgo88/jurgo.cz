@@ -26,8 +26,16 @@
 // import './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import { stickyNavbar } from './stickyNavbar.js';
+import { masonryLayout } from './masonryLayout.js';
+// import { createModal } from './modal.js';
 
 stickyNavbar();
+masonryLayout();
+// createModal();
+
+// document.getElementById("modalButton").addEventListener("click", function() {
+//   createModal();
+// });
 
 // Navbar scroll effect
 
