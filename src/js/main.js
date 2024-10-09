@@ -24,6 +24,15 @@
 // setupCounter(document.querySelector('#counter'))
 
 // import './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
+
+// import '../../node_modules/prismjs/themes/prism-tomorrow.css'; // Importuj CSS štýly
+// import Prism from 'prismjs'; // Importuj Prism.js
+
+// // Ak chceš načítať aj jazykové podporné súbory, môžeš to spraviť takto
+// import 'prismjs/components/prism-javascript.min.js'; // Príklad pre JavaScript
+// import 'prismjs/components/prism-html.min.js'; // Príklad pre HTML
+// console.log(Prism.languages); // Vypíše všetky dostupné jazyky
+
 import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import { stickyNavbar } from './stickyNavbar.js';
 import { masonryLayout } from './masonryLayout.js';

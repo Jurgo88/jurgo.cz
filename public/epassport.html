@@ -1,3 +1,389 @@
-<span>
-    KOkotko
-</span>
+<h3> Zadanie </h3>
+<p> Pôvodné zadanie bolo na vytvorenie mobilnej aplikácie pre zjedonošenie agendy s registráciou dobrovoľníkov na rôzne podujatia. 
+    K zadaniu bol dodaný grafický návrh vo Figme 
+</p>
+<br>
+<h3> Riešenie </h3>
+<p> Ako riešenie som zvolil vytvorenie webovej aplikácie, ktorá bude prístupná na všetkých zariadeniach. </p>
+<p>
+    Pre tento projekt som sa rozhodol vytvoriť webovú aplikáciu, ktorá je plne responzívna a prístupná na všetkých zariadeniach vrátane počítačov, tabletov a mobilných telefónov. Na implementáciu som použil Vue.js, moderný JavaScriptový framework, ktorý je ideálny na budovanie interaktívnych a dynamických aplikácií. Vue.js umožňuje rýchle zostavenie komponentov a efektívne riadenie stavu aplikácie.
+</p>
+<p>
+    Pri nasadzovaní aplikácie som zvolil platformu Netlify, ktorá ponúka integrované funkcie na zvýšenie výkonu a bezpečnosti, vrátane automatických nasadení a podpory pre SSL certifikáty. Aby som zabezpečil štýlový a konzistentný dizajn, použil som kombináciu Vuetify a Tailwind CSS. Tento prístup mi umožnil vytvoriť moderné a flexibilné používateľské rozhranie, ktoré sa prispôsobí rôznym veľkostiam obrazovky.
+</p>
+<p>
+    Aplikácia používa Firestore ako databázu, čo umožňuje prístup k dátam v reálnom čase, ktorý je ideálny pre dynamické aplikácie. Firestore je navyše plne škálovateľný, čo znamená, že aplikácia môže rásť spolu s potrebami používateľov bez kompromisov na výkone. Pre zvýšenú bezpečnosť som implementoval HSTS, čo zaručuje, že pripojenie k aplikácii je vždy zabezpečené prostredníctvom HTTPS.
+</p>
+
+
+<br>
+
+</p>
+<h4>Techstack</h4>
+<br>
+<div class="techstack-container">
+    <div class="column">
+      <b>JavaScript Framework</b>
+      <ul>
+        <li>Vue.js</li>
+      </ul>
+      <b>Security</b>
+      <ul>
+        <li>HSTS</li>
+      </ul>
+      
+    </div>
+    <div class="column">
+        <b>JavaScript Libraries</b>
+        <ul>
+          <li>core-js 3.16.0</li>
+        </ul>
+      <b>CDN & PaaS</b>
+      <ul>
+        <li>Netlify</li>
+      </ul>
+    </div>
+    <div class="column">
+      <b>UI Frameworks</b>
+      <ul>
+        <li>Vuetify</li>
+        <li>Tailwind CSS</li>
+      </ul>
+      <b>Database</b>
+        <ul>
+            <li>Firestore</li>
+        </ul>
+
+    </div>
+  </div>
+
+
+<h4> Ukážky kódu </h4>
+
+
+<br>
+
+<b>Firebase config</b>
+<br>
+<br>
+<p> Ukážka kódu z konfiguračného súboru pre pripojenie k Firestore databáze.
+    Tento súbor obsahuje nastavenia pre pripojenie k databáze, vrátane identifikátora projektu a kľúča autentifikácie. 
+    Tieto informácie sú potrebné pre inicializáciu pripojenia k databáze a získanie prístupu k dátam. 
+    Konfiguračný súbor je súčasťou projektu a je používaný pri inicializácii aplikácie.
+</p>
+
+<pre class="language-js">
+    <code class="language-js">
+        // src/firebase.js
+        import { initializeApp } from 'firebase/app'
+        import { getAuth } from 'firebase/auth'
+        import { getFirestore } from 'firebase/firestore'
+        import { getStorage } from 'firebase/storage'
+        
+        const firebaseConfig = {
+            apiKey: `${import.meta.env.VITE_API_KEY}`,
+            authDomain: `${import.meta.env.VITE_AUTH_DOMAIN}`,
+            projectId: `${import.meta.env.VITE_PROJECT_ID}`,
+            storageBucket: `${import.meta.env.VITE_STORAGE_BUCKET}`,
+            messagingSenderId: `${import.meta.env.VITE_MESSAGING_SENDER_ID}`,
+            appId: `${import.meta.env.VITE_APP_ID}`,
+            measurementId: `${import.meta.env.VITE_MEASUREMENT_ID}`
+        }
+        
+        // console.debug('firebaseConfig', firebaseConfig)
+        const app = initializeApp(firebaseConfig)
+        const firebaseAuth = getAuth(app)
+        const db = getFirestore(app);
+        const storage = getStorage(app);
+        // console.debug('firebaseAuth', firebaseAuth)
+        
+        
+        export { firebaseAuth, db, storage }
+    </code>
+</pre>
+
+<b>AnswerBox</b>
+<br>
+<br>
+<p> Ukážka kódu z Vue.js komponentu, ktorý zobrazuje textové pole a tlačidlo pre odpoveď na otázku. 
+Tento komponent umožňuje používateľovi zadať odpoveď na otázku a potvrdiť ju kliknutím na tlačidlo. 
+Po zadaní odpovede sa farba tlačidla zmení na zelenú, aby používateľ vedel, že odpoveď bola úspešne odoslaná. 
+Ak používateľ nezadá odpoveď, farba tlačidla zostane červená, čo naznačuje, že je potrebné zadať odpoveď.
+Tento komponent je súčasťou väčšieho formulára, ktorý umožňuje používateľovi zadať viacero odpovedí na rôzne otázky. 
+</p>
+
+
+
+<pre class="language-js">
+    <code class="language-js">
+        &lt;script setup&gt;
+            import { ref, onMounted, defineProps, defineEmits } from 'vue';
+            import { useStore } from 'vuex';
+            // import { updateRecord } from '/services/database.js';
+            // import  sendData  from '/services/sendData.js';
+            // import { getAuth } from 'firebase/auth';
+            
+            
+            const store = useStore();
+            
+            // props
+            const props = defineProps({
+              volunteerData: {
+                type: Object,
+                required: false,
+              },
+              userState: {
+                type: Object,
+                required: false,
+              },
+              answer: {
+                type: String,
+                required: true,
+              },
+              question : {
+                type: String,
+                required: false,
+              },
+            });
+            
+            // emits
+            const emit = defineEmits(['answer, question']);
+            
+            
+            const volunteerData = ref(props.volunteerData);
+            const answer = ref(props.answer);
+            const buttonColor = ref('red');
+            const question = ref(props.question);
+            
+            const answerData = ref({
+              question: '',
+              answer: '',
+            });
+            
+            
+            if(answer.value == ''){
+              buttonColor.value = 'red';
+            }
+            else{
+              buttonColor.value = 'green';
+            }
+            
+            
+            
+            const handleButtonClick = () => {
+                answerData.value.question = question.value;
+                answerData.value.answer = answer.value;
+                emit('answer', answerData.value);
+            
+                if (answer.value) {
+                    buttonColor.value = 'green';
+                } else {
+                    buttonColor.value = 'red';
+                }
+                
+                return answer.value;
+            
+               
+            };
+            
+            const handleAnswerChange = () => {            
+                if (answer.value) {
+                        buttonColor.value = 'green';
+                } else {
+                    buttonColor.value = 'red';
+                }
+            };
+            
+            
+            onMounted(() => {
+                if (answer.value) {
+                    buttonColor.value = 'green';
+                } else {
+                    buttonColor.value = 'red';
+                }
+            });
+        &lt;/script&gt;
+    </code>
+</pre>
+<pre class="language-markup">
+    <code class="language-markup">
+        &lt;template&gt;
+        &lt;div style="height: 125px;"&gt;
+            &lt;v-textarea class="textarea" rows="3" v-model="answer" label="Your answer..." outlined&gt;&lt;/v-textarea&gt;
+            &lt;v-btn icon @click="handleButtonClick()" :color="buttonColor" class="myButton" style="margin: 0;"&gt;
+                &lt;i class="material-icons"&gt;add_circle_outline&lt;/i&gt;
+            &lt;/v-btn&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+    
+    &lt;style&gt;
+        .textarea {
+            width: 80%;
+            float: left;
+        }  
+        .myButton {
+            float: right;
+            margin-top: 20px;
+            margin-right: 20px;
+            display: none;
+        }
+    &lt;/style&gt;
+    </code>
+</pre>
+
+<br>
+<br>
+
+<b>Rating box</b>
+<br>
+<br>
+<p> Ukážka kódu z Vue.js komponentu, ktorý zobrazuje hodnotenie v podobe hviezdičiek.
+    Tento komponent umožňuje používateľovi zadať hodnotenie od 1 do 5 hviezdičiek a odoslať ho kliknutím na tlačidlo.
+    Po zadaní hodnotenia sa hodnota zobrazí v konzole a odosle sa pomocou emitu.
+    Komponent tiež aktualizuje hodnotu v objekte dobrovoľníka na základe cesty a hodnoty currentValue.
+    Tento komponent je súčasťou formulára hodnotenia, ktorý umožňuje používateľovi hodnotiť viacero otázok.
+</p>
+
+
+<pre class="language-js">
+    <code class="language-js">
+        &lt;script setup&gt;
+        import { ref, defineProps, defineEmits, onBeforeMount } from 'vue';
+        import sendData from '../../services/sendData.js';
+        
+        const props = defineProps({
+        initialRating: Number, 
+        
+        volunteerData: {
+            type: Object,
+            required: false,
+        },
+        
+        questionData: {
+            type: String,
+            required: true,
+        },
+        
+            path: {
+                type: String,
+                required: false,
+            },
+        
+        });
+        
+        const emit = defineEmits(['update']);
+        
+        const currentValue = ref(props.initialRating);
+        const volunteerData = ref(props.volunteerData);
+        
+        function emitRating() {
+            console.log('emitRating : ' + currentValue.value)
+        emit('update',currentValue.value);
+        }
+        
+        function updateRatting() {        
+            const questionPath = `${props.path}.${props.questionData}`;        
+            const pathSegments = questionPath.split('.');
+        
+            // path setting
+            let targetObject = volunteerData.value;
+            for (let i = 0; i  pathSegments.length - 1; i++) {
+                const segment = pathSegments[i];
+                if (!targetObject[segment]) {
+                    targetObject[segment] = {};
+                }
+                targetObject = targetObject[segment];
+            }
+            
+            const lastSegment = pathSegments[pathSegments.length - 1];
+            targetObject[lastSegment] = currentValue.value;
+            
+            sendData(volunteerData.value);
+        
+        }
+        
+        onBeforeMount(() => {
+            currentValue.value = props.initialRating;
+        });
+           
+    &lt;/script&gt;
+    </code>
+</pre>
+
+<pre class="language-markup">
+    <code class="language-markup">
+    &lt;template&gt;
+        &lt;div class="rating"&gt;
+        &lt;!-- &lt;label v-for="value in 5" :key="value" :class="{ active: value &lt;= currentValue }"&gt;
+          &lt;input type="radio" :value="value" v-model="currentValue" @change="updateRatting" /&gt;
+          {{ value }}
+        &lt;/label&gt; --&gt;
+        &lt;v-radio-group v-model="currentValue" @change="updateRatting" inline&gt;
+          &lt;v-radio v-for="value in 5" :key="value" :value="value" :class="{ active: value &lt;= currentValue }"&gt;
+              {{ value }}
+          &lt;/v-radio&gt;
+        &lt;/v-radio-group&gt;
+      &lt;/div&gt;
+    &lt;/template&gt;
+
+    &lt;style&gt;
+        .rating {
+        display: flex;
+        padding-top: 10px;
+        padding-left: 10px;
+        }
+
+        label {
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .active {
+            color: rgb(0, 17, 255);
+            opacity: 1;
+        }
+
+        .v-selection-control__input input {
+            opacity: 0.7 !important;
+            color: red !important;
+            height: 40px !important;
+            margin-top: 0px !important;
+        }
+
+        .v-selection-control__input {
+            margin-left: -24px;
+        }
+
+        .v-checkbox .v-selection-control {
+            min-height: 30px;
+        }
+
+        .v-selection-control--inline {
+            flex: 1 0 auto;
+        }
+    &lt;/style&gt;
+
+    </code>
+</pre>
+    
+
+
+
+
+
+<style>
+    .techstack-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .column {
+      flex: 1;
+      margin-right: 15px;
+    }
+    .column:last-child {
+      margin-right: 0;
+    }
+    pre {
+      max-height: 500px;
+    }
+  </style>

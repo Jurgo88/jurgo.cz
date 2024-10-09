@@ -26,6 +26,12 @@
     <script src="https://unpkg.com/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+
+    
+
     <title>Jurgo.cz</title>
   </head>
   <body>
@@ -52,9 +58,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#portfolio">Portfolio</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" id="publikacie" href="#publikacie-content">Publikácie</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">Kontakt</a>
                         </li>
@@ -137,6 +143,9 @@
                 <div class="container">
                     <div class="section text-center">
                         <h2 class="title">Portfolio</h2>
+                        <p class="description">Tu nájdete niektoré z našich nedávnych projektov. Pre viac informácií kliknite na tlačidlo "Detail".</p>
+                        <br>
+
                         <!-- Masonry container -->
                         <div id="masonry-container" class="grid">
 
@@ -144,8 +153,8 @@
                               <img src="assets/img/portfolio/aktrokan.PNG" class="card-img-top" alt="...">
                               <div class="card-body">
                                   <h5 class="card-title">Webstránka</h5>
-                                  <p class="card-text">Firemný web pre Advokátsku kanceláriu sídliacu v Trnave</p>
-                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="pravnik">
+                                  <p class="card-text">Firemný web pre Advokátsku kanceláriu sídliacu v Trnave s jednoduchým CMS systémom.</p>
+                                  <button type="button" class="myBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="pravnik">
                                     Detail
                                   </button>
                                 </div>
@@ -156,7 +165,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Webová aplikácia</h5>
                                     <p class="card-text">Aplikácia určená pre mobilné zariadenia, vytvorena pre neziskovu organizaciu ktora sprostredkuva dobrovolnicku cinnost v roznych krajinach sveta.</p>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="epassport">
+                                    <button type="button" class="myBtn"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="epassport">
                                       Detail
                                     </button>
                                 </div>
@@ -167,7 +176,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Webstránka</h5>
                                     <p class="card-text">Prezentačný web pre partiu mladých hudobníkov z Topoľčian, pôsobiacich po celom Slovensku.</p>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="martinavalach">
+                                    <button type="button"class="myBtn"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="martinavalach">
                                       Detail
                                     </button>
                                 </div>
@@ -178,7 +187,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Webstránka</h5>
                                     <p class="card-text">Prezentačný web pre cateringovú spoločnosť z Bratislavy.</p>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="roxy">
+                                    <button type="button"class="myBtn"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="roxy">
                                       Detail
                                     </button>
                                 </div>
@@ -189,7 +198,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Webová aplikácia</h5>
                                     <p class="card-text">Webová appka pre slovenskú spoločnosť na správu a štatistiku nákupov. A nech ti to nejebe.</p>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="shopmaster">
+                                    <button type="button"class="myBtn"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="shopmaster">
                                       Detail
                                     </button>
                                 </div>
@@ -200,7 +209,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Webstránka</h5>
                                     <p class="card-text">Stránka pre konzultačnú spoločnosť pôsobiacu na slovenskom a českom trhu.</p>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="sigmatech">
+                                    <button type="button"class="myBtn"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="sigmatech">
                                       Detail
                                     </button>
                                 </div>
@@ -267,8 +276,6 @@
                   var myInput = document.getElementById('myInput')
                   var modalBody = myModal.querySelector('.modal-body');
                   var modalTitle = myModal.querySelector('.modal-title');
-                  var zadanie = '';
-                  var riešenie = '';
                   
 
                   myModal.addEventListener('shown.bs.modal', function () {
@@ -287,12 +294,17 @@
                     switch (content) {
                       case 'pravnik':
                         console.log('pravnik');
-                        zadanie = "<p>Webstránka pre advokátsku kanceláriu sídliacu v Trnave. Cieľom projektu bolo vytvoriť modernú a prehľadnú webstránku, ktorá bude zobrazovať informácie o právnych službách poskytovaných kanceláriou, ako aj profil advokátov a kontaktné údaje. Stránka je optimalizovaná pre rýchle načítanie a vysoký výkon, s dôrazom na responzívny dizajn, ktorý zabezpečuje správne zobrazenie na všetkých zariadeniach. Projekt bol vyvinutý s použitím moderných technológií a najlepších praktík pri vývoji, aby bol výsledok spoľahlivý a bezpečný.</p>";
-                        riešenie = "<p> Webstránka bola vyvinutá s použitím HTML, CSS a JavaScript, s dôrazom na responzívny dizajn a optimalizáciu pre rýchle načítanie. Boli vytvorené špeciálne stránky pre každého advokáta, ktoré obsahujú informácie o ich kvalifikácii, skúsenostiach a právnych službách, ktoré poskytujú. Stránka obsahuje tiež kontaktný formulár a informácie o kancelárii, vrátane adresy a telefónneho čísla. Projekt bol úspešne dokončený a zákazník bol spokojný s výsledkom.</p>";
-                        break;
+                        fetch('./public/pravnik.html ')
+                          .then(response => response.text())
+                          .then(data => {
+                            modalBody.innerHTML = data;
+                            modalTitle.textContent = 'Advokátska kancelária';
+                            modalTitle.innerHTML += ' <a href="https://www.aktrokan.sk" target="_blank" class=""> aktrokan.sk</a>';
+                          });
+                        return;
                       case 'epassport':
                         console.log('epassport');
-                        fetch('epassport.html')
+                        fetch('./public/epassport.html  ')
                           .then(response => response.text())
                           .then(data => {
                             modalBody.innerHTML = data;
@@ -300,6 +312,12 @@
                         return;
                       case 'martinavalach':
                         console.log('martinavalach');
+                        fetch('./public/martinavalach.html  ')
+                          .then(response => response.text())
+                          .then(data => {
+                            modalTitle.textContent = 'Martin a Valach';
+                            modalBody.innerHTML = data;
+                          });
                         break;
                       case 'roxy':
                         console.log('roxy');
@@ -309,6 +327,13 @@
                         break;
                       case 'sigmatech':
                         console.log('sigmatech');
+                        fetch('./public/sigmatech.html  ')
+                          .then(response => response.text())
+                          .then(data => {
+                            modalTitle.textContent = 'Sigma Tech';
+                            modalTitle.innerHTML += ' <a href="https://www.sigmatech.site" target="_blank" class=""> sigmatech.site</a>';
+                            modalBody.innerHTML = data;
+                          });
                         break;
                       default:
                         console.log('default');
