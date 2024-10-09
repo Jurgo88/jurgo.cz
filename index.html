@@ -294,7 +294,7 @@
                     switch (content) {
                       case 'pravnik':
                         console.log('pravnik');
-                        fetch('./portfolio/pravnik.html')
+                        fetch('./pravnik.html')
                           .then(response => response.text())
                           .then(data => {
                             modalBody.innerHTML = data;
@@ -327,7 +327,7 @@
                         break;
                       case 'sigmatech':
                         console.log('sigmatech');
-                        fetch('./public/sigmatech.html  ')
+                        fetch('/sigmatech.html')
                           .then(response => response.text())
                           .then(data => {
                             modalTitle.textContent = 'Sigma Tech';
