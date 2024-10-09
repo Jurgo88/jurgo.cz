@@ -304,7 +304,7 @@
                         return;
                       case 'epassport':
                         console.log('epassport');
-                        fetch('./public/epassport.html  ')
+                        fetch('./epassport.html')
                           .then(response => response.text())
                           .then(data => {
                             modalBody.innerHTML = data;
@@ -312,7 +312,7 @@
                         return;
                       case 'martinavalach':
                         console.log('martinavalach');
-                        fetch('./public/martinavalach.html  ')
+                        fetch('/martinavalach.html')
                           .then(response => response.text())
                           .then(data => {
                             modalTitle.textContent = 'Martin a Valach';
