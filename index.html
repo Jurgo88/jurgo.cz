@@ -29,6 +29,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L919CGYL19"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L919CGYL19');
+    </script>
+
 
     
 
@@ -307,6 +317,7 @@
                         fetch('./epassport.html')
                           .then(response => response.text())
                           .then(data => {
+                            modalTitle.textContent = 'ePassport';
                             modalBody.innerHTML = data;
                           });
                         return;
