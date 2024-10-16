@@ -39,6 +39,8 @@
       gtag('config', 'G-L919CGYL19');
     </script>
 
+    <script src="src/js/portfolio.js"></script>
+
 
     
 
@@ -207,7 +209,7 @@
                                 <img src="assets/img/portfolio/shopmaster.PNG" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Webová aplikácia</h5>
-                                    <p class="card-text">Webová appka pre slovenskú spoločnosť na správu a štatistiku nákupov. A nech ti to nejebe.</p>
+                                    <p class="card-text">Webová appka pre slovenskú spoločnosť na správu a štatistiku nákupov. Na jej vývoj boli použité najmodernejšie technológie.</p>
                                     <button type="button" class="myBtn"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-content="shopmaster">
                                       Detail
                                     </button>
@@ -282,110 +284,21 @@
                 </div>
 
                 <script>
-                  var myModal = document.getElementById('exampleModal')
-                  var myInput = document.getElementById('myInput')
-                  var modalBody = myModal.querySelector('.modal-body');
-                  var modalTitle = myModal.querySelector('.modal-title');
-                  
+                  var myModal = document.getElementById('exampleModal')                  
 
                   myModal.addEventListener('shown.bs.modal', function () {
                     console.log('shown');
-                    event.preventDefault();
+                    event.preventDefault(); 
 
-
-                    var button = event.relatedTarget;
-
-                    
-
+                    var button = event.relatedTarget; // Button that triggered the modal
                     // Získanie hodnoty z atribútu data-content tlačidla
                     var content = button.getAttribute('data-content');
+                    loadModalContent(content);
 
-
-                    switch (content) {
-                      case 'pravnik':
-                        console.log('pravnik');
-                        fetch('./pravnik.html')
-                          .then(response => response.text())
-                          .then(data => {
-                            modalBody.innerHTML = data;
-                            modalTitle.textContent = 'Advokátska kancelária';
-                            modalTitle.innerHTML += ' <a href="https://www.aktrokan.sk" target="_blank" class=""> aktrokan.sk</a>';
-                          });
-                        return;
-                      case 'epassport':
-                        console.log('epassport');
-                        fetch('./epassport.html')
-                          .then(response => response.text())
-                          .then(data => {
-                            modalTitle.textContent = 'ePassport';
-                            modalBody.innerHTML = data;
-                          });
-                        return;
-                      case 'martinavalach':
-                        console.log('martinavalach');
-                        fetch('/martinavalach.html')
-                          .then(response => response.text())
-                          .then(data => {
-                            modalTitle.textContent = 'Martin a Valach';
-                            modalBody.innerHTML = data;
-                          });
-                        break;
-                      case 'roxy':
-                        console.log('roxy');
-                        break;
-                      case 'shopmaster':
-                        console.log('shopmaster');
-                        break;
-                      case 'sigmatech':
-                        console.log('sigmatech');
-                        fetch('/sigmatech.html')
-                          .then(response => response.text())
-                          .then(data => {
-                            modalTitle.textContent = 'Sigma Tech';
-                            modalTitle.innerHTML += ' <a href="https://www.sigmatech.site" target="_blank" class=""> sigmatech.site</a>';
-                            modalBody.innerHTML = data;
-                          });
-                        break;
-                      default:
-                        console.log('default');
-                        break;
-                    }
-
-                    // Nastavenie textu v modal-body na základe atribútu tlačidla
-                    modalTitle.textContent = content;
-                    modalBody.innerHTML = '';
-                    modalBody.innerHTML += '<h3>Zadanie</h3>';
-                    modalBody.innerHTML += '<p>' + zadanie + '</p>';
-                    modalBody.innerHTML += '<h3>Riešenie</h3>';
-                    modalBody.innerHTML += riešenie
 
                   })
-                  
-                  // myModal.addEventListener('shown.bs.modal', function () {
-                  //   myInput.focus()
-                  // })
                 </script>
 
-                <script type="text/javascript">
-                  window._mfq = window._mfq || [];
-                  (function() {
-                    var mf = document.createElement("script");
-                    mf.type = "text/javascript"; mf.defer = true;
-                    mf.src = "//cdn.mouseflow.com/projects/65b61c33-8ea6-4978-9908-56dd39c7da61.js";
-                    document.getElementsByTagName("head")[0].appendChild(mf);
-                  })();
-                </script>
-
-                <script type="text/javascript">
-                  (function(c,l,a,r,i,t,y){
-                      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                      t=l.createElement(r); 
-                      t.defer = true; 
-                      t.src="https://www.clarity.ms/tag/"+i;
-                      y=l.getElementsByTagName(r)[0];
-                      y.parentNode.insertBefore(t,y);
-                  })(window, document, "clarity", "script", "oj7l0t75h5");
-                </script>
 
 
 
@@ -402,6 +315,27 @@
 
             </section>
             <script type="module" src="src/js/main.js"></script>
+            
+            <script type="text/javascript">
+              window._mfq = window._mfq || [];
+              (function() {
+                var mf = document.createElement("script");
+                mf.type = "text/javascript"; mf.defer = true;
+                mf.src = "//cdn.mouseflow.com/projects/65b61c33-8ea6-4978-9908-56dd39c7da61.js";
+                document.getElementsByTagName("head")[0].appendChild(mf);
+              })();
+            </script>
+
+            <script type="text/javascript">
+              (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r); 
+                  t.defer = true; 
+                  t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];
+                  y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "oj7l0t75h5");
+            </script>
 
   </body>
 </html>

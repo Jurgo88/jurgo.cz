@@ -1,0 +1,76 @@
+<h3> Zadanie </h3>
+<p> Vytvorenie webovej aplikácie pre nádejnú slovenskú spoločnosť na správu a štatistiku nákupov. Aplikácia by mala byť prístupná na všetkých zariadeniach. 
+</p>
+<br>
+<h3> Riešenie </h3>
+Na vyriešenie daného zadania sme prvýkrát zvolil vue.JS framework. Na buildovanie a nasadzovanie aplikacie sme použili Netlify. Aplikácia je postavená na Firestore databáze. Pre zabezpečenie bezpečnosti sme implementovali HSTS.
+<p> Ako riešenie som zvolil vytvorenie webovej aplikácie, ktorá bude prístupná na všetkých zariadeniach. </p>
+<p>
+    Pre tento projekt som sa rozhodol vytvoriť webovú aplikáciu, ktorá je plne responzívna a prístupná na všetkých zariadeniach vrátane počítačov, tabletov a mobilných telefónov. Na implementáciu som použil Vue.js, moderný JavaScriptový framework, ktorý je ideálny na budovanie interaktívnych a dynamických aplikácií. Vue.js umožňuje rýchle zostavenie komponentov a efektívne riadenie stavu aplikácie.
+</p>
+<p>
+    Pri nasadzovaní aplikácie som zvolil platformu Netlify, ktorá ponúka integrované funkcie na zvýšenie výkonu a bezpečnosti, vrátane automatických nasadení a podpory pre SSL certifikáty. Aby som zabezpečil štýlový a konzistentný dizajn, použil som kombináciu Vuetify a Tailwind CSS. Tento prístup mi umožnil vytvoriť moderné a flexibilné používateľské rozhranie, ktoré sa prispôsobí rôznym veľkostiam obrazovky.
+</p>
+<p>
+    Aplikácia používa Firestore ako databázu, čo umožňuje prístup k dátam v reálnom čase, ktorý je ideálny pre dynamické aplikácie. Firestore je navyše plne škálovateľný, čo znamená, že aplikácia môže rásť spolu s potrebami používateľov bez kompromisov na výkone. Pre zvýšenú bezpečnosť som implementoval HSTS, čo zaručuje, že pripojenie k aplikácii je vždy zabezpečené prostredníctvom HTTPS.
+</p>
+
+
+<br>
+
+</p>
+<h4>Techstack</h4>
+<br>
+<div class="techstack-container">
+    <div class="column">
+      <b>JavaScript Framework</b>
+      <ul>
+        <li>Vue.js</li>
+      </ul>
+      <b>Security</b>
+      <ul>
+        <li>HSTS</li>
+      </ul>
+      
+    </div>
+    <div class="column">
+        <b>JavaScript Libraries</b>
+        <ul>
+          <li>core-js 3.16.0</li>
+        </ul>
+      <b>CDN & PaaS</b>
+      <ul>
+        <li>Netlify</li>
+      </ul>
+    </div>
+    <div class="column">
+      <b>UI Frameworks</b>
+      <ul>
+        <li>Vuetify</li>
+        <li>Tailwind CSS</li>
+      </ul>
+      <b>Database</b>
+        <ul>
+            <li>Firestore</li>
+        </ul>
+
+    </div>
+  </div>
+
+
+  <style>
+    .techstack-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .column {
+      flex: 1;
+      margin-right: 15px;
+    }
+    .column:last-child {
+      margin-right: 0;
+    }
+    pre {
+      max-height: 500px;
+    }
+  </style>
