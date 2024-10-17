@@ -31,15 +31,16 @@
 
 export function masonryLayout() {
     console.log("masonryLayout.js is working");
-    document.addEventListener("DOMContentLoaded", function() {
-        var elem = document.querySelector('#masonry-container');
-        var msnry = new Masonry(elem, {
-            itemSelector: '.grid-item', // Klasický selektor pre karty
-            columnWidth: '.grid-item', // Definuje šírku stĺpcov na základe karty
-            percentPosition: true, // Používa percentá pre lepšiu responzivitu
-            gutter: 20 // Medzera medzi kartami
-        });
   
-
-  });
-}
+    // Čakaj, kým sa načítajú všetky zdroje (vrátane obrázkov)
+    window.onload = () => {
+      const container = document.querySelector('#masonry-container');
+      const msnry = new Masonry(container, {
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-item',
+        percentPosition: true,
+        gutter: 20
+      });
+    };
+  }
+  
