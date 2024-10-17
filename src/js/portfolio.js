@@ -28,7 +28,9 @@ const portfolioData = {
     }
   };
   
-  function loadModalContent(content) {
+
+  window.loadModalContent = function(content) {
+    console.log('portfolio.js is working');
     console.log('Loading content:', content);
     const modalBody = document.getElementById('exampleModal').querySelector('.modal-body');
     const modalTitle = document.getElementById('exampleModal').querySelector('.modal-title');
