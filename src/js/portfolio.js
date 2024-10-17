@@ -25,7 +25,11 @@ const portfolioData = {
       url: '/sigmatech.html',
       title: 'Sigma Tech',
       link: 'https://www.sigmatech.site'
-    }
+    },
+    jurgo: {
+      url: '/jurgo.html',
+      title: 'Jurgo'
+    },
   };
   
 
