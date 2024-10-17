@@ -50,6 +50,31 @@
   transition: 0.5s;
   background-color: var(--primary-color);
 }
+.primaryButton {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 0px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.primaryButton:hover {
+  background-color: var(--secondary-color);
+  color: black;
+  transition: 0.5s;
+
+}
+.heroButton{
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid white;
+
+}
 h2 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -157,6 +182,25 @@ nav li:hover {
   background-size: cover;
   background-position: center;
   position: relative;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-top: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+.hero p {
+  width: 60%;
+  height: 250px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5%;
 }
 
 /* *************** o nas */
@@ -381,6 +425,12 @@ footer {
 @media (max-width: 992px) {
   .grid-item {
     width: calc(50% - 20px);
+  }
+  .hero p {
+    width: 100%;
+  }
+  .hero h1 {
+    width: 100%;
   }
 }
 @media (max-width: 768px) {
