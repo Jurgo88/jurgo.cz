@@ -38,6 +38,8 @@ import { stickyNavbar } from './stickyNavbar.js';
 import { masonryLayout } from './masonryLayout.js';
 // import { createModal } from './modal.js';
 
+console.log('main.js is working');
+
 stickyNavbar();
 masonryLayout();
 // createModal();
