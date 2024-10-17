@@ -433,10 +433,15 @@ footer {
   }
   .hero {
     height: 100vh;
+    justify-content: flex-start;
   }
   .hero p {
     width: 100%;
     font-size: 1.2rem;
+    height: 150px;
+  }
+  .hero .primaryButton{
+    width: 100%;
   }
   .hero h1 {
     width: 100%;
