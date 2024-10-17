@@ -41,7 +41,7 @@ import { masonryLayout } from './masonryLayout.js';
 console.log('main.js is working');
 
 stickyNavbar();
-masonryLayout();
+// masonryLayout();
 // createModal();
 
 // document.getElementById("modalButton").addEventListener("click", function() {

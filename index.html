@@ -299,6 +299,22 @@
 
 
           })
+
+        //   {
+            console.log("masonryLayout.js is working");
+            document.addEventListener("DOMContentLoaded", function() {
+                var elem = document.querySelector('#masonry-container');
+                var msnry = new Masonry(elem, {
+                    itemSelector: '.grid-item', // Klasický selektor pre karty
+                    columnWidth: '.grid-item', // Definuje šírku stĺpcov na základe karty
+                    percentPosition: true, // Používa percentá pre lepšiu responzivitu
+                    gutter: 20 // Medzera medzi kartami
+                });
+          
+
+          });
+        // }
+
         </script>
 
 
