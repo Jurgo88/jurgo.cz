@@ -195,6 +195,8 @@ nav li:hover {
   width: 60%;
   margin: 0 auto;
   padding: 10px 0;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: (3px);
 }
 .hero p {
   width: 60%;
@@ -203,6 +205,8 @@ nav li:hover {
   font-size: 1.5rem;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 5%;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: (3px);
 }
 
 /* *************** o nas */
@@ -277,6 +281,7 @@ nav li:hover {
 #portfolio .card img {
   border-radius: 0px ;
   padding: 2%;
+  max-height: 450px; /* maximalna Výška obrázka */
 }
 
 .grid-item {
@@ -433,6 +438,7 @@ footer {
   }
   .hero {
     height: 100vh;
+    padding-top: 5%;
     justify-content: flex-start;
   }
   .hero p {
